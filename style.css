@@ -1,0 +1,59 @@
+:root{--bg:#eef3f7;--surface:#fff;--ink:#12213a;--muted:#4d5d75;--line:#cfd9e4;--accent:#e8541e;--sky:#9fc7e8;
+--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"IBM Plex Sans",system-ui,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1b2d;--surface:#16263d;--ink:#eaf1f8;--muted:#a3b3c7;--line:#2a3d58;--accent:#ff7a45;--sky:#2f5f8a}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
+.nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:.9rem clamp(1rem,5vw,3rem);background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{font:800 1.2rem var(--display);text-decoration:none}
+nav a{margin-left:1.5rem;text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--accent)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);padding:.4rem .8rem;border-radius:6px;font:inherit}
+.hero{position:relative;overflow:hidden;padding:clamp(4rem,12vw,9rem) clamp(1rem,5vw,3rem) clamp(3rem,8vw,6rem);max-width:1100px;margin:auto}
+.hero h1{font-size:clamp(2.4rem,7vw,5.2rem);font-weight:800;max-width:14ch;letter-spacing:-.02em}
+.lead{max-width:52ch;color:var(--muted);font-size:1.2rem;margin:1.5rem 0 2rem}
+.status{display:inline-block;margin:0 0 1.2rem;padding:.25rem .8rem;border:1px solid var(--line);border-radius:99px;background:var(--surface);font-size:.9rem}
+.status::before{content:"";display:inline-block;width:.55rem;height:.55rem;margin-right:.5rem;border-radius:50%;background:#2fa866}
+.horizon{position:absolute;right:-8%;top:50%;width:min(520px,60vw);aspect-ratio:1;border-radius:50%;transform:translateY(-50%);overflow:hidden;opacity:.55;z-index:-1;border:2px solid var(--line);background:linear-gradient(var(--sky) 50%,#b88a5e 50%)}
+.horizon span{position:absolute;left:-20%;right:-20%;top:50%;height:3px;background:var(--surface);animation:tilt 9s ease-in-out infinite alternate}
+@keyframes tilt{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.75rem 1.3rem;border:2px solid var(--ink);border-radius:8px;text-decoration:none;font-weight:500;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.wrap{max-width:1100px;margin:auto;padding:clamp(2.5rem,7vw,5rem) clamp(1rem,5vw,3rem);border-top:1px solid var(--line)}
+.wrap>h2,.two>h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.8rem}
+.two{display:grid;grid-template-columns:1fr 2fr;gap:2rem}
+.two>h2{margin:0}
+.two p{margin-top:0;max-width:62ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0 0}
+.facts dt{font-size:.85rem;color:var(--muted)}
+.facts dd{margin:0;font-weight:500}
+.skill-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+.skill-groups h3,.project h3{font-size:1.2rem;margin-bottom:.8rem}
+.tags{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.tags li{padding:.2rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--surface);font-size:.92rem}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.5rem}
+.project p{color:var(--muted);margin:0 0 1rem}
+.featured{display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem;align-items:end;border-left:6px solid var(--accent);margin-bottom:1.2rem}
+.featured h3{font-size:1.6rem}
+.featured p{margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.more{margin-top:1.5rem;color:var(--muted)}
+.plain{margin:0;padding-left:1.2rem}
+.plain li{margin-bottom:.5rem}
+.contact h2{font-size:clamp(2rem,5vw,3.4rem)}
+.contact p{max-width:52ch;color:var(--muted);margin-bottom:1.8rem}
+footer{text-align:center;padding:2rem;color:var(--muted);border-top:1px solid var(--line)}
+@media(max-width:760px){
+.menu-btn{display:block}
+nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);padding:1rem;border-bottom:1px solid var(--line)}
+nav.open{display:flex;flex-direction:column;gap:.8rem}
+nav a{margin:0}
+.two,.featured{grid-template-columns:1fr}
+.horizon{opacity:.25}
+}
+@media(prefers-reduced-motion:reduce){.horizon span{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
